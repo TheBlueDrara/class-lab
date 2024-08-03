@@ -1,0 +1,9 @@
+*********************************************************************************************************************************************************
+Create a new name space
+# kubectl create namespace ci
+
+Create the Jenkins deployment
+# kubectl apply -f jenkins-deployment.yaml -n ci
+
+To get password
+# kubectl logs $(kubectl get pods --selector=app=jenkins -o jsonpath='{.items[0].metadata.name}' -n ci) -n ci | grep -A 5 "Please use the following password"
