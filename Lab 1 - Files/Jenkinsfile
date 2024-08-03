@@ -1,9 +1,10 @@
 pipeline {
     agent {
         kubernetes {
-            label 'class-run-pod'
+            label 'ez-joy-friends'
+            idleMinutes 5
             yamlFile 'Lab 1 - Files/build-pod.yaml'
-            defaultContainer 'class-run-pod'
+            defaultContainer 'ez-docker-helm-build'
             namespace 'ci'
         }
     }
