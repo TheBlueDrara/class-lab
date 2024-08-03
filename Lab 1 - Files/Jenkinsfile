@@ -19,6 +19,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
+                echo "Checking out code from ${GITHUB_URL}"
                 git url: "${GITHUB_URL}", credentialsId: "${GITHUB_CREDENTIALS_ID}"
             }
         }
@@ -72,8 +73,10 @@ pipeline {
     post {
         always {
             script {
-                container('class-run-pod') {
-                    cleanWs()
+                node {
+                    container('class-run-pod') {
+                        cleanWs()
+                    }
                 }
             }
         }
