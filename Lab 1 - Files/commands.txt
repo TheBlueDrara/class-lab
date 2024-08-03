@@ -1,4 +1,6 @@
 *********************************************************************************************************************************************************
+Enable Kubernetes cluster in DockerDesktop
+
 Create a new name space
 # kubectl create namespace ci
 
@@ -14,11 +16,11 @@ Or
 
 
 ## Set up GitHub and DockerHub Credentials.
-## In github its located in settings, scroll down to developer settings and there.
-## In docker hub its in account settings and generte new API token.
+In github its located in settings, scroll down to developer settings and there.
+In docker hub its in account settings and generte new API token.
 
 ## You must have jenkins Kubernetes plugin installed
+## Install Github interegiton Plugin
 ## Go to jenkins dashboard, system configurations, cloud and create a kubernetes connection to jenkins (find the kubernetes URL, and Jenkins URL)
-
-## To find the kubernetes URL go to C:\Users\USER\.kube    open the config file and there it will be.
-## Jenkins url is the url from the beggining.
+To find the kubernetes URL go to C:\Users\USER\.kube    open the config file and there it will be.
+Jenkins url is the url from the beggining.
