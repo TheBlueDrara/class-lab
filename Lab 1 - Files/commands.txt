@@ -6,10 +6,19 @@ Create the Jenkins deployment
 # kubectl apply -f jenkins-deployment.yaml -n ci
 
 To get password
+# kubectl logs <container id> -n ci
+
+Or
 # kubectl logs $(kubectl get pods --selector=app=jenkins -o jsonpath='{.items[0].metadata.name}' -n ci) -n ci | grep -A 5 "Please use the following password"
 
 
 
+## Set up GitHub and DockerHub Credentials.
+## In github its located in settings, scroll down to developer settings and there.
+## In docker hub its in account settings and generte new API token.
 
-## you must have jenkins Kubernetes plugin installed
-## 
+## You must have jenkins Kubernetes plugin installed
+## Go to jenkins dashboard, system configurations, cloud and create a kubernetes connection to jenkins (find the kubernetes URL, and Jenkins URL)
+
+## To find the kubernetes URL go to C:\Users\USER\.kube    open the config file and there it will be.
+## Jenkins url is the url from the beggining.

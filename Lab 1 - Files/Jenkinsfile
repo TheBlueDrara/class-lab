@@ -2,9 +2,9 @@ pipeline {
     agent {
         kubernetes {
             label 'class-run-pod'
-            idleMinutes 5
             yamlFile 'build-pod.yaml'
             defaultContainer 'class-run-pod'
+            namespace 'ci'
         }
     }
 
@@ -71,7 +71,11 @@ pipeline {
 
     post {
         always {
-            cleanWs()
+            script {
+                container('class-run-pod') {
+                    cleanWs()
+                }
+            }
         }
     }
 }
