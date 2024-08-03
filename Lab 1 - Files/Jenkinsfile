@@ -1,13 +1,5 @@
 pipeline {
-    agent {
-        kubernetes {
-            label 'class-run-pod'
-            idleMinutes 5
-            yamlFile 'Lab 1 - Files/build-pod.yaml'
-            defaultContainer 'class-run-pod'
-            namespace 'ci'
-        }
-    }
+    agent any
 
     environment {
         GITHUB_URL = 'https://github.com/TheBlueDrara/class-lab.git'
