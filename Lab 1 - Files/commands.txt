@@ -11,3 +11,5 @@ To get password
 
 
 
+## you must have jenkins Kubernetes plugin installed
+## 
