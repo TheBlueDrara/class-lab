@@ -10,11 +10,26 @@ spec:
     volumeMounts:
     - name: docker-socket
       mountPath: /var/run/docker.sock
+  - name: jnlp
+    image: jenkins/inbound-agent:4.10-2
+    args: ['$(JENKINS_SECRET)', '$(JENKINS_NAME)']
+    env:
+    - name: JENKINS_SECRET
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.annotations['jenkins.io/credentials-key']
+    - name: JENKINS_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.annotations['jenkins.io/node-name']
+    - name: JENKINS_AGENT_WORKDIR
+      value: /home/jenkins/agent
+    volumeMounts:
+    - name: workspace-volume
+      mountPath: /home/jenkins/agent
+    - name: docker-socket
+      mountPath: /var/run/docker.sock
   volumes:
   - name: docker-socket
     hostPath:
       path: /var/run/docker.sock
-
-
-
-#DEPLOY JENKINS, CREATE A MULTIBRANCH PIPELINE, ADD CREDENTIALS, AND SEE IF IT WORKS

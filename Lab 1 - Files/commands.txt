@@ -16,6 +16,7 @@ Or
 kubectl apply -f jenkins-role.yaml
 kubectl apply -f jenkins-rolebinding.yaml
 
+http://jenkins-service.ci.svc.cluster.local:8080
 
 
 ## Set up GitHub and DockerHub Credentials.
