@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             label 'class-run-pod'
-            yamlFile 'build-pod.yaml'
+            yamlFile 'Lab 1 - Files/build-pod.yaml'
             defaultContainer 'class-run-pod'
             namespace 'ci'
         }
